@@ -17,8 +17,9 @@
         var t = document.getElementById("show");
 //        var dt = new Date().getTime() - t1 + " ms 后: "
         var d = new Date();
-        var dt = d.getTime() + " : "
-        t.innerHTML += dt + str + "<br>";
+//        var dt = d.getTime() + " : "
+        var dt = d + " : "
+        t.innerHTML += dt + "<br>" + str + "<br>";
     }
     showInfo("开始加载");
     console.log("loading");
