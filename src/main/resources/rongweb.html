@@ -8,7 +8,10 @@
 
 <h1>Rongcloud Web Demo</h1>
 <!-- <h2>请打开控制台查看运行结果</h2> -->
-
+<div>
+    <input type = "text" id = "inputid">
+    <button onclick="SendFunction()">send message</button>
+</div>
 <div id="show"></div>
 <script>
     "use strict";
@@ -131,7 +134,8 @@
         }
     });
 
-    var token = "uAoxNdEMm2CTskRT1b3QQpicnvUV49zG5bNcQzKu36qjHV8gHGLq0BBX4VrH0blFIDbD//iG6D+36zzhCQX33mXTEZGL9wru";
+//    var token = "uAoxNdEMm2CTskRT1b3QQpicnvUV49zG5bNcQzKu36qjHV8gHGLq0BBX4VrH0blFIDbD//iG6D+36zzhCQX33mXTEZGL9wru";
+    var token = "WHh8z/JXb7icCVfw1kvp5ACfs31K0FuHYtX2Z8xLueeq0I6Nr1+3UdLpMiYwMKcpSQQle2No2nTPKYqB9QiOx25RpBePJbBB";
 
     RongIMClient.connect(token, {
         onSuccess: function (userId) {
@@ -164,44 +168,50 @@
         }
     });
 
-    var msg = new RongIMLib.TextMessage({content:"hello RongCloud!",extra:"附加信息"});
-    var conversationtype = RongIMLib.ConversationType.PRIVATE; // 私聊,其他会话选择相应的消息类型即可。
-    var targetId = "webuser"; // 目标 Id
-    showInfo("send message: "+targetId);
-    RongIMClient.getInstance().sendMessage(conversationtype, targetId, msg, {
-            onSuccess: function (message) {
-                //message 为发送的消息对象并且包含服务器返回的消息唯一Id和发送消息时间戳
-                console.log("Send successfully");
-            },
-            onError: function (errorCode,message) {
-                var info = '';
-                switch (errorCode) {
-                    case RongIMLib.ErrorCode.TIMEOUT:
-                        info = '超时';
-                        break;
-                    case RongIMLib.ErrorCode.UNKNOWN_ERROR:
-                        info = '未知错误';
-                        break;
-                    case RongIMLib.ErrorCode.REJECTED_BY_BLACKLIST:
-                        info = '在黑名单中，无法向对方发送消息';
-                        break;
-                    case RongIMLib.ErrorCode.NOT_IN_DISCUSSION:
-                        info = '不在讨论组中';
-                        break;
-                    case RongIMLib.ErrorCode.NOT_IN_GROUP:
-                        info = '不在群组中';
-                        break;
-                    case RongIMLib.ErrorCode.NOT_IN_CHATROOM:
-                        info = '不在聊天室中';
-                        break;
-                    default :
-                        info = x;
-                        break;
+    function SendFunction( ) {
+        var msgCon = document.getElementById("inputid").value;
+//        var msg = new RongIMLib.TextMessage({content: msgCon, extra: "附加信息"});
+//        var msg = new RongIMLib.VoiceMessage({content: msgCon, extra: "附加信息"});
+        var msg = new RongIMLib.TextMessage({content:msgCon});
+        var conversationtype = RongIMLib.ConversationType.PRIVATE; // 私聊,其他会话选择相应的消息类型即可。
+        var targetId = "webuser"; // 目标 Id
+        showInfo("send message: " + targetId + "," + msgCon);
+        showInfo("full message: " + msgCon.toString());
+        RongIMClient.getInstance().sendMessage(conversationtype, targetId, msg, {
+                onSuccess: function (message) {
+                    //message 为发送的消息对象并且包含服务器返回的消息唯一Id和发送消息时间戳
+                    console.log("Send successfully");
+                },
+                onError: function (errorCode, message) {
+                    var info = '';
+                    switch (errorCode) {
+                        case RongIMLib.ErrorCode.TIMEOUT:
+                            info = '超时';
+                            break;
+                        case RongIMLib.ErrorCode.UNKNOWN_ERROR:
+                            info = '未知错误';
+                            break;
+                        case RongIMLib.ErrorCode.REJECTED_BY_BLACKLIST:
+                            info = '在黑名单中，无法向对方发送消息';
+                            break;
+                        case RongIMLib.ErrorCode.NOT_IN_DISCUSSION:
+                            info = '不在讨论组中';
+                            break;
+                        case RongIMLib.ErrorCode.NOT_IN_GROUP:
+                            info = '不在群组中';
+                            break;
+                        case RongIMLib.ErrorCode.NOT_IN_CHATROOM:
+                            info = '不在聊天室中';
+                            break;
+                        default :
+                            info = x;
+                            break;
+                    }
+                    console.log('发送失败:' + info);
                 }
-                console.log('发送失败:' + info);
             }
-        }
-    );
+        );
+    }
 
 
 </script>

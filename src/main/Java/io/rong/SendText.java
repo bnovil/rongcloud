@@ -22,6 +22,6 @@ public class SendText {
                 messagePublishPrivateToUserId, messagePublishPrivateVoiceMessage, "thisisapush",
                 "{\"pushData\":\"hello\"}", "4", 0, 0, 0, 0);
         System.out.println("publishPrivate:  " + messagePublishPrivateResult.toString());
-
+        System.gc();
     }
 }
