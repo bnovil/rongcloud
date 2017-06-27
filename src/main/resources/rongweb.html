@@ -135,7 +135,10 @@
     });
 
 //    var token = "uAoxNdEMm2CTskRT1b3QQpicnvUV49zG5bNcQzKu36qjHV8gHGLq0BBX4VrH0blFIDbD//iG6D+36zzhCQX33mXTEZGL9wru";
-    var token = "WHh8z/JXb7icCVfw1kvp5ACfs31K0FuHYtX2Z8xLueeq0I6Nr1+3UdLpMiYwMKcpSQQle2No2nTPKYqB9QiOx25RpBePJbBB";
+    //470029947712
+//    var token = "XLsbZ8PyOsAaV4CRvjPX4QCfs31K0FuHYtX2Z8xLueeq0I6Nr1+3UfYqgpM0vW77Zzt1o9NG0nXPKYqB9QiOx9Xp/C8uHgor";
+    //4700299266
+    var token = "QEsKzvt6UyroudabHd3x5vBzZqgtj90JG7Hl3xbyfCQXRM3Bzga05kj8YCkV62JgXASJhEq+MiM6P5m1NHq27RcUFrAhGZ+h";
 
     RongIMClient.connect(token, {
         onSuccess: function (userId) {
@@ -171,10 +174,10 @@
     function SendFunction( ) {
         var msgCon = document.getElementById("inputid").value;
 //        var msg = new RongIMLib.TextMessage({content: msgCon, extra: "附加信息"});
-//        var msg = new RongIMLib.VoiceMessage({content: msgCon, extra: "附加信息"});
-        var msg = new RongIMLib.TextMessage({content:msgCon});
+        var msg = new RongIMLib.VoiceMessage({content: msgCon, extra: "附加信息"});
+//        var msg = new RongIMLib.TextMessage({content:msgCon});
         var conversationtype = RongIMLib.ConversationType.PRIVATE; // 私聊,其他会话选择相应的消息类型即可。
-        var targetId = "webuser"; // 目标 Id
+        var targetId = "4700299266"; // 目标 Id
         showInfo("send message: " + targetId + "," + msgCon);
         showInfo("full message: " + msgCon.toString());
         RongIMClient.getInstance().sendMessage(conversationtype, targetId, msg, {
