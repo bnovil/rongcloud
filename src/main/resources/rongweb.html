@@ -77,7 +77,7 @@
         // 接收到的消息
         onReceived: function (message) {
             var str = JSON.stringify(message);
-            showInfo("message type: " + message.objectName);
+            showInfo("full message : " + str);
             // 判断消息类型
             switch (message.messageType) {
                 case RongIMClient.MessageType.TextMessage:
@@ -88,7 +88,7 @@
                     break;
                 case RongIMClient.MessageType.VoiceMessage:
                     showInfo("receive voice");
-                    showInfo(str);
+                    showInfo(message.content.content);
                     // 对声音进行预加载
                     // message.content.content 格式为 AMR 格式的 base64 码
                     RongIMLib.RongIMVoice.preLoaded(message.content.content);
@@ -136,7 +136,7 @@
 
 //    var token = "uAoxNdEMm2CTskRT1b3QQpicnvUV49zG5bNcQzKu36qjHV8gHGLq0BBX4VrH0blFIDbD//iG6D+36zzhCQX33mXTEZGL9wru";
     //470029947712
-//    var token = "XLsbZ8PyOsAaV4CRvjPX4QCfs31K0FuHYtX2Z8xLueeq0I6Nr1+3UfYqgpM0vW77Zzt1o9NG0nXPKYqB9QiOx9Xp/C8uHgor";
+//    var token = "zzBsVPd3SgCgxmn64CE2kPBzZqgtj90JG7Hl3xbyfCR3JOwzO4xxGjyP8+yOJVimXASJhEq+MiPUJKx8l53DObklEavOzp15";
     //4700299477
 //    var token = "f3jwuyRGql+gxmn64CE2kPBzZqgtj90JG7Hl3xbyfCSinRv6f4p0ZC0GdcdshjNEXASJhEq+MiPUJKx8l53DOUsrC4zseqZ3";
     //4700299266
