@@ -15,13 +15,12 @@ public class SendText {
         String appSecret = "z0gFndOLga2Q";
         RongCloud rongCloud = RongCloud.getInstance(appKey, appSecret);
 
-        String[] messagePublishPrivateToUserId = {"webuser"};
+        String[] messagePublishPrivateToUserId = {"470029947712"};
         String toWeb = "hello, for test";
         TxtMessage messagePublishPrivateVoiceMessage = new TxtMessage(toWeb, "helloExtra");
         CodeSuccessResult messagePublishPrivateResult = rongCloud.message.publishPrivate("4700299477",
                 messagePublishPrivateToUserId, messagePublishPrivateVoiceMessage, "thisisapush",
                 "{\"pushData\":\"hello\"}", "4", 0, 0, 0, 0);
         System.out.println("publishPrivate:  " + messagePublishPrivateResult.toString());
-        System.gc();
     }
 }

@@ -87,8 +87,8 @@
                     showInfo("received: " + message.content.content + "-- from " + message.senderUserId);
                     break;
                 case RongIMClient.MessageType.VoiceMessage:
-                    showInfo("receive voice");
-                    showInfo(message.content.content);
+                    showInfo(" voice message");
+
                     // 对声音进行预加载
                     // message.content.content 格式为 AMR 格式的 base64 码
                     RongIMLib.RongIMVoice.preLoaded(message.content.content);
@@ -136,13 +136,13 @@
 
 //    var token = "uAoxNdEMm2CTskRT1b3QQpicnvUV49zG5bNcQzKu36qjHV8gHGLq0BBX4VrH0blFIDbD//iG6D+36zzhCQX33mXTEZGL9wru";
     //470029947712
-//    var token = "8/VGb9GGICgrGeW+9hsenQCfs31K0FuHYtX2Z8xLueeq0I6Nr1+3URnD+jMfbxRkWOzzmN3FD6vPKYqB9QiOx9Xp/C8uHgor";
+    var token = "8/VGb9GGICgrGeW+9hsenQCfs31K0FuHYtX2Z8xLueeq0I6Nr1+3URnD+jMfbxRkWOzzmN3FD6vPKYqB9QiOx9Xp/C8uHgor";
     //4700299477
 //    var token = "f3jwuyRGql+gxmn64CE2kPBzZqgtj90JG7Hl3xbyfCSinRv6f4p0ZC0GdcdshjNEXASJhEq+MiPUJKx8l53DOUsrC4zseqZ3";
     //4700299266
 //    var token = "QEsKzvt6UyroudabHd3x5vBzZqgtj90JG7Hl3xbyfCQXRM3Bzga05kj8YCkV62JgXASJhEq+MiM6P5m1NHq27RcUFrAhGZ+h";
     //watchserver
-    var token = "a94p7OqU9IbRNHnsnNvyn/BzZqgtj90JG7Hl3xbyfCTQhVMr8t+c1NmVK5V3rrWwZ2EjR1dfDcnWmUkmJ9UXfkpgpt5tM9X8";
+//    var token = "a94p7OqU9IbRNHnsnNvyn/BzZqgtj90JG7Hl3xbyfCTQhVMr8t+c1NmVK5V3rrWwZ2EjR1dfDcnWmUkmJ9UXfkpgpt5tM9X8";
     RongIMClient.connect(token, {
         onSuccess: function (userId) {
             console.log("Login successfully." + userId);
@@ -221,6 +221,8 @@
 
 
 </script>
+
+
 
 </body>
 

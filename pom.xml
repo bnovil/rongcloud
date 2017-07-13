@@ -37,6 +37,15 @@
       <artifactId>activemq-web</artifactId>
       <version>5.8.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jms</artifactId>
+      <version>4.3.8.RELEASE</version>
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.apache.activemq</groupId>-->
+      <!--<artifactId>activemq-client</artifactId>-->
+    <!--</dependency>-->
   </dependencies>
   <build>
     <finalName>rongcloud</finalName>

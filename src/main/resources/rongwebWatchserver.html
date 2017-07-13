@@ -87,8 +87,8 @@
                     showInfo("received: " + message.content.content + "-- from " + message.senderUserId);
                     break;
                 case RongIMClient.MessageType.VoiceMessage:
-                    showInfo("receive voice");
-                    showInfo(message.content.content);
+                    showInfo(" voice message");
+//                    showInfo(message.content.content);
                     // 对声音进行预加载
                     // message.content.content 格式为 AMR 格式的 base64 码
                     RongIMLib.RongIMVoice.preLoaded(message.content.content);
@@ -221,6 +221,7 @@
 
 
 </script>
+
 
 </body>
 
